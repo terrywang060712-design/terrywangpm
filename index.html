@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terry Wang — PM Prep Hub</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0f13;
+      --surface: #18181f;
+      --border: #2a2a38;
+      --accent: #7c6dfa;
+      --accent2: #a78bfa;
+      --text: #e8e8f0;
+      --muted: #888899;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --rose: #fb7185;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 15, 19, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent2); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 100px 2rem 60px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(124, 109, 250, 0.12);
+      border: 1px solid rgba(124, 109, 250, 0.3);
+      color: var(--accent2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--accent2); }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* SECTION */
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 2rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .section-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* GRID */
+    .grid { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+
+    /* CARD */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      transition: border-color 0.2s, transform 0.15s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .label-book { color: var(--green); }
+    .label-platform { color: var(--accent2); }
+    .label-video { color: var(--rose); }
+    .label-newsletter { color: var(--amber); }
+    .label-practice { color: #38bdf8; }
+    .card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+    .card p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+    /* FRAMEWORK TABLE */
+    .framework-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .fw-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .fw-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 4px;
+    }
+    .fw-full { font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
+    .fw-use { font-size: 0.82rem; color: var(--text); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--border);
+    }
+    .tl-item { position: relative; margin-bottom: 32px; }
+    .tl-dot {
+      position: absolute;
+      left: -24px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .tl-week {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent2);
+      margin-bottom: 4px;
+    }
+    .tl-title { font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+    .tl-body { font-size: 0.82rem; color: var(--muted); }
+    .tl-tasks { margin-top: 8px; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .tl-tasks li { font-size: 0.82rem; color: var(--muted); }
+    .tl-tasks li::before { content: '→ '; color: var(--accent); }
+
+    /* TIPS */
+    .tips-list { display: flex; flex-direction: column; gap: 12px; }
+    .tip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .tip strong { color: var(--text); }
+
+    /* DIVIDER */
+    hr { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 2rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1.2rem; }
+      section { padding: 48px 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#">Terry<span>Wang</span></a>
+    <ul class="nav-links">
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#frameworks">Frameworks</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#tips">Tips</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">PM Interview Prep Hub</div>
+    <h1>Land your <span>Product Manager</span> role</h1>
+    <p>A curated, no-fluff guide to the resources, frameworks, and study plan that actually matter.</p>
+  </div>
+
+  <hr />
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="section-header">
+      <h2>Core Resources</h2>
+      <span class="section-tag">Curated</span>
+    </div>
+
+    <!-- Books -->
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px;">Books</p>
+    <div class="grid grid-2" style="margin-bottom:32px;">
+      <a class="card" href="https://www.amazon.com/dp/0984782818" target="_blank" rel="noopener">
+        <div class="card-label label-book">Book</div>
+        <h3>Cracking the PM Interview</h3>
+        <p>Gayle McDowell & Jackie Bavaro. The definitive guide — covers every question type with structured approaches. Start here.</p>
+      </a>
+      <a class="card" href="https://www.amazon.com/dp/0998120448" target="_blank" rel="noopener">
+        <div class="card-label label-book">Book</div>
+        <h3>Decode and Conquer</h3>
+        <p>Lewis C. Lin. Dense, practical frameworks for product design, estimation, and strategy questions. Great for structured answers.</p>
+      </a>
+      <a class="card" href="https://www.amazon.com/dp/1491904909" target="_blank" rel="noopener">
+        <div class="card-label label-book">Book</div>
+        <h3>Inspired — Marty Cagan</h3>
+        <p>How great products are built. Essential background knowledge for "how would you build X" and product sense questions.</p>
+      </a>
+    </div>
+
+    <!-- Platforms -->
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px;">Practice Platforms</p>
+    <div class="grid grid-2" style="margin-bottom:32px;">
+      <a class="card" href="https://www.tryexponent.com" target="_blank" rel="noopener">
+        <div class="card-label label-platform">Platform</div>
+        <h3>Exponent</h3>
+        <p>Best PM interview prep platform. Video lessons, question bank, and mock interviews with real PMs. Worth the subscription.</p>
+      </a>
+      <a class="card" href="https://www.productalliance.com" target="_blank" rel="noopener">
+        <div class="card-label label-platform">Platform</div>
+        <h3>Product Alliance</h3>
+        <p>Company-specific PM guides (Google, Meta, Amazon, etc.) with real interview questions and sample answers. Great for targeting.</p>
+      </a>
+      <a class="card" href="https://igotanoffer.com/blogs/product-manager" target="_blank" rel="noopener">
+        <div class="card-label label-platform">Platform</div>
+        <h3>IGotAnOffer — PM Blog</h3>
+        <p>Free, high-quality breakdowns of PM interviews at top companies. Exceptional worked examples for every question type.</p>
+      </a>
+    </div>
+
+    <!-- Video -->
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px;">Video</p>
+    <div class="grid grid-2" style="margin-bottom:32px;">
+      <a class="card" href="https://www.youtube.com/@ExponentTV" target="_blank" rel="noopener">
+        <div class="card-label label-video">YouTube</div>
+        <h3>Exponent — YouTube</h3>
+        <p>Free mock PM interviews with detailed feedback. Watch 5–10 examples to internalize what good answers sound like.</p>
+      </a>
+      <a class="card" href="https://www.youtube.com/@JeffHSiew" target="_blank" rel="noopener">
+        <div class="card-label label-video">YouTube</div>
+        <h3>Jeff H Siew</h3>
+        <p>Ex-Google PM. Detailed walkthroughs of product design and metrics questions. Very practical and concise.</p>
+      </a>
+    </div>
+
+    <!-- Newsletters -->
+    <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:12px;">Stay Sharp</p>
+    <div class="grid grid-2">
+      <a class="card" href="https://www.lennysnewsletter.com" target="_blank" rel="noopener">
+        <div class="card-label label-newsletter">Newsletter</div>
+        <h3>Lenny's Newsletter</h3>
+        <p>The go-to PM newsletter. Covers strategy, metrics, growth, and career — doubles as great material for "what excites you in PM" answers.</p>
+      </a>
+      <a class="card" href="https://www.reforge.com/blog" target="_blank" rel="noopener">
+        <div class="card-label label-newsletter">Newsletter / Blog</div>
+        <h3>Reforge Blog</h3>
+        <p>Deep-dives on product strategy and growth. Reading 3–4 posts gives you sharp, informed opinions to drop in interviews.</p>
+      </a>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- FRAMEWORKS -->
+  <section id="frameworks">
+    <div class="section-header">
+      <h2>Essential Frameworks</h2>
+      <span class="section-tag">Reference</span>
+    </div>
+    <div class="framework-grid">
+      <div class="fw-card">
+        <div class="fw-name">CIRCLES</div>
+        <div class="fw-full">Comprehend → Identify users → Report needs → Cut through → List solutions → Evaluate → Summarize</div>
+        <div class="fw-use">Product design questions — designing or improving a product.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-name">RICE</div>
+        <div class="fw-full">Reach × Impact × Confidence ÷ Effort</div>
+        <div class="fw-use">Prioritization questions — comparing features or roadmap items.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-name">AARRR</div>
+        <div class="fw-full">Acquisition → Activation → Retention → Referral → Revenue</div>
+        <div class="fw-use">Metrics / analytics questions — diagnosing a drop or defining success.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-name">STAR</div>
+        <div class="fw-full">Situation → Task → Action → Result</div>
+        <div class="fw-use">Behavioral questions — tell me about a time you…</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-name">Jobs-to-be-Done</div>
+        <div class="fw-full">"When I ___, I want to ___, so I can ___."</div>
+        <div class="fw-use">User needs — reframe features around user motivations, not demographics.</div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-name">North Star + Guardrails</div>
+        <div class="fw-full">One primary metric that captures value, protected by counter-metrics.</div>
+        <div class="fw-use">Success metrics — "how would you measure success for X?"</div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="section-header">
+      <h2>6-Week Study Plan</h2>
+      <span class="section-tag">Timeline</span>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Week 1</div>
+        <div class="tl-title">Foundation</div>
+        <ul class="tl-tasks">
+          <li>Read Cracking the PM Interview (Part 1–2)</li>
+          <li>Watch 5 Exponent mock interviews on YouTube</li>
+          <li>Learn CIRCLES, STAR, RICE frameworks cold</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Week 2</div>
+        <div class="tl-title">Product Design Questions</div>
+        <ul class="tl-tasks">
+          <li>Practice 10 product design questions using CIRCLES</li>
+          <li>Read Inspired (Cagan) — key chapters on discovery and delivery</li>
+          <li>Record yourself answering 3 questions out loud</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Week 3</div>
+        <div class="tl-title">Metrics & Analytical Thinking</div>
+        <ul class="tl-tasks">
+          <li>Master AARRR and North Star metric frameworks</li>
+          <li>Practice 8 "diagnose a metric drop" questions</li>
+          <li>Study SQL basics if needed (Mode Analytics tutorial)</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Week 4</div>
+        <div class="tl-title">Estimation & Strategy</div>
+        <ul class="tl-tasks">
+          <li>Practice 8 market sizing / estimation questions</li>
+          <li>Read Decode and Conquer — strategy chapter</li>
+          <li>Prepare 2–3 strong opinions on products you use daily</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Week 5</div>
+        <div class="tl-title">Behavioral & Company-Specific Prep</div>
+        <ul class="tl-tasks">
+          <li>Write out 8 STAR stories covering leadership, conflict, data-driven decisions, failure</li>
+          <li>Study target company on Product Alliance</li>
+          <li>Read 4–5 Lenny's Newsletter posts relevant to target company's domain</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-week">Week 6</div>
+        <div class="tl-title">Mock Interviews & Polish</div>
+        <ul class="tl-tasks">
+          <li>Do 4 full mock interviews (Exponent platform or with a peer)</li>
+          <li>Review recordings — cut filler words and tighten structure</li>
+          <li>Prepare 3 sharp questions to ask your interviewers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- TIPS -->
+  <section id="tips">
+    <div class="section-header">
+      <h2>What Actually Works</h2>
+      <span class="section-tag">Advice</span>
+    </div>
+    <div class="tips-list">
+      <div class="tip"><strong>Structure before you speak.</strong> Take 30 seconds to silently map your answer. Interviewers reward clear thinking far more than speed.</div>
+      <div class="tip"><strong>Anchor every product decision to a user need.</strong> "I would add X because users struggle with Y" beats "I would add X because it's cool."</div>
+      <div class="tip"><strong>Say the number.</strong> Estimation questions are about structured reasoning — always arrive at a final number, even if you caveat it.</div>
+      <div class="tip"><strong>Mock out loud, not in your head.</strong> Saying an answer feels completely different from thinking it. Record yourself at least once a week.</div>
+      <div class="tip"><strong>Have strong opinions on 2–3 products.</strong> "What product do you love and how would you improve it?" is the easiest question to nail if you've prepared it.</div>
+      <div class="tip"><strong>Know your stories cold.</strong> You should be able to deliver each STAR story in under 2 minutes from memory, not a script.</div>
+    </div>
+  </section>
+
+  <footer>
+    Built for Terry Wang · PM Interview Prep Hub · 2025
+  </footer>
+
+</body>
+</html>
