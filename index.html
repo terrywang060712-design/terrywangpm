@@ -185,7 +185,7 @@
     }
     .table-header {
       display: grid;
-      grid-template-columns: 2fr 1.4fr 1.4fr 1.4fr;
+      grid-template-columns: 2fr 1fr;
       padding: 10px 20px;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
@@ -199,8 +199,8 @@
     }
     .table-row {
       display: grid;
-      grid-template-columns: 2fr 1.4fr 1.4fr 1.4fr;
-      padding: 13px 20px;
+      grid-template-columns: 2fr 1fr;
+      padding: 12px 20px;
       border-bottom: 1px solid var(--border-light);
       align-items: center;
       transition: background 0.1s;
@@ -343,132 +343,337 @@
       <div class="section-title">When Companies Post</div>
       <p class="section-desc">PM and APM cohorts are small — windows close fast. Most top programs open in Aug–Oct 2026 for summer 2027. Apply in the first week.</p>
 
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:20px;line-height:1.6;">Expected release dates based on prior-year posting patterns, via <strong style="color:var(--text);">Jobloom</strong>. Dates are estimates — apply as soon as a role goes live.</p>
+
       <div class="company-table">
         <div class="table-header">
-          <span>Company / Program</span>
-          <span>Opens</span>
-          <span>Closes / Deadline</span>
-          <span>Notes</span>
+          <span>Company</span>
+          <span>Expected posting date</span>
         </div>
 
-        <div class="table-row">
-          <div>
-            <div class="company-name">Google</div>
-            <div class="company-program">Associate Product Manager</div>
-          </div>
-          <div class="table-cell">Mid-October 2026</div>
-          <div class="table-cell">~2 weeks after opening</div>
-          <div class="table-cell"><span class="badge badge-fast">Closes in days</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Jane Street</div>
+          <div class="table-cell">Jun 13, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Meta</div>
-            <div class="company-program">Rotational PM (RPM)</div>
-          </div>
-          <div class="table-cell">Late August 2026</div>
-          <div class="table-cell">Rolling, fills quickly</div>
-          <div class="table-cell"><span class="badge badge-early">Earliest opener</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Capital One</div>
+          <div class="table-cell">Jul 8, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Microsoft</div>
-            <div class="company-program">PM Intern</div>
-          </div>
-          <div class="table-cell">August–September 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Salesforce</div>
+          <div class="table-cell">Jul 8, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Amazon</div>
-            <div class="company-program">PM Intern</div>
-          </div>
-          <div class="table-cell">August–September 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">LinkedIn</div>
+          <div class="table-cell">Aug 9, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Apple</div>
-            <div class="company-program">EPM / PM Intern</div>
-          </div>
-          <div class="table-cell">September–October 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">ByteDance / TikTok</div>
+          <div class="table-cell">Aug 12, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">LinkedIn</div>
-            <div class="company-program">PM Intern · First Play track</div>
-          </div>
-          <div class="table-cell">September–October 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-limited">Underclass-friendly</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Microsoft</div>
+          <div class="table-cell">Aug 15, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Uber</div>
-            <div class="company-program">APM Intern</div>
-          </div>
-          <div class="table-cell">October–November 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Databricks</div>
+          <div class="table-cell">Aug 19, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Salesforce</div>
-            <div class="company-program">PM Intern</div>
-          </div>
-          <div class="table-cell">September–November 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Autodesk</div>
+          <div class="table-cell">Aug 26, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Stripe</div>
-            <div class="company-program">PM Intern</div>
-          </div>
-          <div class="table-cell">October–December 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Duolingo</div>
+          <div class="table-cell">Aug 28, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Palantir</div>
-            <div class="company-program">Product Deployment Intern</div>
-          </div>
-          <div class="table-cell">October–December 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Intuit</div>
+          <div class="table-cell">Sep 1, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Adobe</div>
-            <div class="company-program">PM Intern</div>
-          </div>
-          <div class="table-cell">September–November 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Mastercard</div>
+          <div class="table-cell">Sep 1, 2026</div>
         </div>
-
-        <div class="table-row">
-          <div>
-            <div class="company-name">Snowflake</div>
-            <div class="company-program">PM Intern</div>
-          </div>
-          <div class="table-cell">October–December 2026</div>
-          <div class="table-cell">Rolling admissions</div>
-          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">HubSpot</div>
+          <div class="table-cell">Sep 7, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Datadog</div>
+          <div class="table-cell">Sep 9, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">IBM</div>
+          <div class="table-cell">Sep 11, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Henkel</div>
+          <div class="table-cell">Sep 12, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">ServiceNow</div>
+          <div class="table-cell">Sep 15, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Google</div>
+          <div class="table-cell">Sep 19, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Atlassian</div>
+          <div class="table-cell">Sep 20, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">PayPal</div>
+          <div class="table-cell">Sep 23, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Qualcomm</div>
+          <div class="table-cell">Oct 20, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Oracle</div>
+          <div class="table-cell">Nov 6, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Epic Games</div>
+          <div class="table-cell">Nov 7, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Roblox</div>
+          <div class="table-cell">Nov 8, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Hewlett Packard Enterprise</div>
+          <div class="table-cell">Nov 14, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Cisco</div>
+          <div class="table-cell">Nov 18, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Cloudflare</div>
+          <div class="table-cell">Nov 19, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Procter &amp; Gamble</div>
+          <div class="table-cell">Nov 20, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">DocuSign</div>
+          <div class="table-cell">Nov 25, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Dassault Systemes</div>
+          <div class="table-cell">Dec 2, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">NBCUniversal</div>
+          <div class="table-cell">Dec 3, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">S&amp;P Global</div>
+          <div class="table-cell">Dec 4, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Ulta Beauty</div>
+          <div class="table-cell">Dec 5, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Coinbase</div>
+          <div class="table-cell">Dec 7, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">American Express</div>
+          <div class="table-cell">Dec 10, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Disney</div>
+          <div class="table-cell">Dec 12, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Nvidia</div>
+          <div class="table-cell">Dec 12, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Illumio</div>
+          <div class="table-cell">Dec 16, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Samsung Electronics</div>
+          <div class="table-cell">Dec 18, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">T-Mobile</div>
+          <div class="table-cell">Dec 21, 2026</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Tesla</div>
+          <div class="table-cell">Jan 6, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Splunk</div>
+          <div class="table-cell">Jan 7, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Glean</div>
+          <div class="table-cell">Jan 8, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">SAP</div>
+          <div class="table-cell">Jan 9, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Adobe</div>
+          <div class="table-cell">Jan 13, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Thermo Fisher Scientific</div>
+          <div class="table-cell">Jan 13, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Nasdaq</div>
+          <div class="table-cell">Jan 14, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Walmart</div>
+          <div class="table-cell">Jan 15, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Amazon</div>
+          <div class="table-cell">Jan 20, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Corsair</div>
+          <div class="table-cell">Jan 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Snorkel AI</div>
+          <div class="table-cell">Jan 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Gemini</div>
+          <div class="table-cell">Jan 22, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Rakuten</div>
+          <div class="table-cell">Jan 27, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Red Hat</div>
+          <div class="table-cell">Jan 28, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Workiva</div>
+          <div class="table-cell">Jan 28, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Paramount</div>
+          <div class="table-cell">Feb 4, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Reddit</div>
+          <div class="table-cell">Feb 5, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">eBay</div>
+          <div class="table-cell">Feb 10, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">The Trade Desk</div>
+          <div class="table-cell">Feb 10, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Dropbox</div>
+          <div class="table-cell">Feb 11, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Yahoo</div>
+          <div class="table-cell">Feb 11, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Expedia Group</div>
+          <div class="table-cell">Feb 12, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Invesco</div>
+          <div class="table-cell">Feb 17, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">GitHub</div>
+          <div class="table-cell">Feb 18, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">UiPath</div>
+          <div class="table-cell">Feb 18, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Spotify</div>
+          <div class="table-cell">Feb 19, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Activision-Blizzard</div>
+          <div class="table-cell">Feb 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Crowdstrike</div>
+          <div class="table-cell">Feb 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">King</div>
+          <div class="table-cell">Feb 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Zoom</div>
+          <div class="table-cell">Feb 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Zoox</div>
+          <div class="table-cell">Feb 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">MongoDB</div>
+          <div class="table-cell">Feb 23, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">KPCB Fellows</div>
+          <div class="table-cell">Feb 24, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Warner Bros. Discovery</div>
+          <div class="table-cell">Feb 25, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Tinder</div>
+          <div class="table-cell">Mar 4, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Visa</div>
+          <div class="table-cell">Mar 9, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Circle</div>
+          <div class="table-cell">Mar 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Roku</div>
+          <div class="table-cell">Mar 21, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Fortinet</div>
+          <div class="table-cell">Mar 31, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Tencent</div>
+          <div class="table-cell">Apr 1, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Snowflake</div>
+          <div class="table-cell">Apr 3, 2027</div>
+        </div>
+        <div class="table-row" style="grid-template-columns:2fr 1fr;">
+          <div class="company-name">Appian</div>
+          <div class="table-cell">Apr 15, 2027</div>
         </div>
       </div>
 
