@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terry Wang — 2027 Internship Recruiting Hub</title>
+  <title>Terry Wang — 2027 PM Internship Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0f0f13;
-      --surface: #18181f;
-      --border: #2a2a38;
-      --accent: #7c6dfa;
-      --accent2: #a78bfa;
-      --text: #e8e8f0;
-      --muted: #888899;
-      --green: #34d399;
-      --amber: #fbbf24;
-      --rose: #fb7185;
-      --blue: #38bdf8;
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: #e8e6e1;
+      --border-light: #f0ede8;
+      --text: #1a1916;
+      --muted: #6b6860;
+      --subtle: #9e9b94;
+      --accent: #2d5be3;
+      --accent-light: #eef1fd;
+      --green: #1a7a4a;
+      --green-light: #edf7f1;
+      --amber: #92640a;
+      --amber-light: #fdf6e8;
+      --rose: #a0293a;
+      --rose-light: #fdf0f1;
     }
 
     html { scroll-behavior: smooth; }
@@ -26,9 +33,10 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* NAV */
@@ -36,245 +44,274 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(15, 15, 19, 0.88);
-      backdrop-filter: blur(14px);
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
+      padding: 0 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 60px;
+      height: 56px;
     }
-    .nav-logo { font-weight: 700; font-size: 1rem; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
-    .nav-logo span { color: var(--accent2); }
+    .nav-logo {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
     .nav-links a:hover { color: var(--text); }
+
+    /* LAYOUT */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     /* HERO */
     .hero {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 96px 2rem 64px;
-      text-align: center;
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
     }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(124, 109, 250, 0.12);
-      border: 1px solid rgba(124, 109, 250, 0.3);
-      color: var(--accent2);
-      font-size: 0.75rem;
+    .hero-eyebrow {
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 4px 14px;
-      border-radius: 999px;
-      margin-bottom: 24px;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
+      color: var(--accent);
       margin-bottom: 20px;
     }
-    .hero h1 span { color: var(--accent2); }
-    .hero p {
-      color: var(--muted);
+    .hero h1 {
+      font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .hero-desc {
       font-size: 1rem;
-      max-width: 560px;
-      margin: 0 auto 32px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 36px;
     }
 
-    /* ABOUT CARD */
-    .about-card {
-      max-width: 700px;
-      margin: 0 auto;
+    /* ABOUT STRIP */
+    .about-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px 28px;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      text-align: left;
+      border-radius: 10px;
+      padding: 14px 20px;
     }
-    .about-avatar {
-      width: 52px;
-      height: 52px;
+    .about-initials {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      background: var(--text);
+      color: var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       flex-shrink: 0;
-      letter-spacing: -0.03em;
     }
-    .about-text h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-    .about-text p { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
-    .about-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .chip {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      padding: 3px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-    }
-    .chip-apple { color: #e8e8f0; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); }
-    .chip-school { color: var(--amber); background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.2); }
-    .chip-role { color: var(--accent2); background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.2); }
+    .about-info { display: flex; flex-direction: column; gap: 2px; }
+    .about-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .about-detail { font-size: 0.78rem; color: var(--muted); }
+    .about-detail strong { color: var(--text); font-weight: 500; }
 
     /* SECTION */
-    section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 60px 2rem;
-    }
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .section-header h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .section-tag {
+    .section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    .section:last-of-type { border-bottom: none; }
+    .section-eyebrow {
       font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2px 8px;
-      border-radius: 4px;
+      color: var(--subtle);
+      margin-bottom: 8px;
     }
-    .section-sub {
-      font-size: 0.84rem;
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .section-desc {
+      font-size: 0.87rem;
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 36px;
+      max-width: 540px;
+      line-height: 1.6;
     }
 
     /* SUBLABEL */
     .sublabel {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
+      font-size: 0.7rem;
+      font-weight: 600;
       letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 12px;
-      margin-top: 28px;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 14px;
+      margin-top: 36px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
     }
     .sublabel:first-of-type { margin-top: 0; }
 
-    /* GRID */
-    .grid { display: grid; gap: 14px; }
-    .grid-2 { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-
-    /* CARD */
-    .card {
-      background: var(--surface);
+    /* COMPANY TABLE */
+    .company-table {
+      width: 100%;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 22px;
-      transition: border-color 0.2s, transform 0.15s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--surface);
     }
-    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .card-label {
+    .table-header {
+      display: grid;
+      grid-template-columns: 2fr 1.4fr 1.4fr 1.4fr;
+      padding: 10px 20px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .table-header span {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 7px;
+      color: var(--subtle);
     }
-    .label-job { color: var(--green); }
-    .label-network { color: var(--blue); }
-    .label-book { color: var(--green); }
-    .label-platform { color: var(--accent2); }
-    .label-video { color: var(--rose); }
-    .label-newsletter { color: var(--amber); }
-    .card h3 { font-size: 0.93rem; font-weight: 600; margin-bottom: 5px; }
-    .card p { font-size: 0.81rem; color: var(--muted); line-height: 1.5; }
+    .table-row {
+      display: grid;
+      grid-template-columns: 2fr 1.4fr 1.4fr 1.4fr;
+      padding: 13px 20px;
+      border-bottom: 1px solid var(--border-light);
+      align-items: center;
+      transition: background 0.1s;
+    }
+    .table-row:last-child { border-bottom: none; }
+    .table-row:hover { background: var(--bg); }
+    .company-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+    .company-program { font-size: 0.78rem; color: var(--muted); margin-top: 1px; }
+    .table-cell { font-size: 0.82rem; color: var(--muted); }
+    .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .badge-fast { background: var(--rose-light); color: var(--rose); }
+    .badge-rolling { background: var(--green-light); color: var(--green); }
+    .badge-early { background: var(--amber-light); color: var(--amber); }
+    .badge-limited { background: var(--accent-light); color: var(--accent); }
 
-    /* FRAMEWORK */
-    .framework-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-    .fw-card {
+    /* INFO CARDS */
+    .card-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .info-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 16px 20px;
+      padding: 18px 20px;
     }
-    .fw-name { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent2); margin-bottom: 4px; }
-    .fw-full { font-size: 0.76rem; color: var(--muted); margin-bottom: 7px; }
-    .fw-use { font-size: 0.81rem; color: var(--text); }
+    .info-card-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 8px;
+    }
+    .info-card h3 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .info-card p { font-size: 0.81rem; color: var(--muted); line-height: 1.55; }
+
+    /* FRAMEWORK LIST */
+    .fw-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); }
+    .fw-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 1fr;
+      gap: 16px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-light);
+      align-items: start;
+    }
+    .fw-row:last-child { border-bottom: none; }
+    .fw-name { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    .fw-expand { font-size: 0.78rem; color: var(--muted); }
+    .fw-when { font-size: 0.78rem; color: var(--muted); }
 
     /* TIMELINE */
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px; top: 6px; bottom: 6px;
-      width: 2px;
-      background: var(--border);
+    .tl-list { display: flex; flex-direction: column; gap: 0; }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+      align-items: start;
     }
-    .tl-item { position: relative; margin-bottom: 32px; }
-    .tl-dot {
-      position: absolute;
-      left: -24px; top: 5px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--bg);
-    }
-    .tl-dot.done { background: var(--green); }
-    .tl-period { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent2); margin-bottom: 4px; }
-    .tl-title { font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
-    .tl-tasks { list-style: none; display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
-    .tl-tasks li { font-size: 0.81rem; color: var(--muted); }
-    .tl-tasks li::before { content: '→ '; color: var(--accent); }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-period { font-size: 0.78rem; font-weight: 600; color: var(--text); padding-top: 1px; }
+    .tl-period-sub { font-size: 0.72rem; color: var(--subtle); font-weight: 400; margin-top: 2px; }
+    .tl-content h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .tl-tasks { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .tl-tasks li { font-size: 0.81rem; color: var(--muted); padding-left: 14px; position: relative; }
+    .tl-tasks li::before { content: '–'; position: absolute; left: 0; color: var(--subtle); }
 
     /* TIPS */
-    .tips-list { display: flex; flex-direction: column; gap: 11px; }
+    .tips-list { display: flex; flex-direction: column; gap: 10px; }
     .tip {
+      padding: 14px 18px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
       border-radius: 8px;
-      padding: 13px 18px;
       font-size: 0.84rem;
       color: var(--muted);
+      line-height: 1.6;
     }
     .tip strong { color: var(--text); }
 
-    /* DIVIDER */
-    hr { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
-
     /* FOOTER */
-    footer { text-align: center; padding: 40px 2rem; color: var(--muted); font-size: 0.78rem; }
-    footer a { color: var(--accent2); text-decoration: none; }
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--subtle);
+    }
 
-    @media (max-width: 600px) {
-      nav { padding: 0 1rem; }
+    @media (max-width: 640px) {
+      nav { padding: 0 1.2rem; }
       .nav-links { gap: 1.2rem; }
-      section { padding: 48px 1rem; }
-      .about-card { flex-direction: column; gap: 14px; }
+      .container { padding: 0 1.2rem; }
+      .table-header, .table-row { grid-template-columns: 1.6fr 1fr 1fr; }
+      .table-header span:nth-child(3), .table-row .table-cell:nth-child(3) { display: none; }
+      .fw-row { grid-template-columns: 100px 1fr; }
+      .fw-when { display: none; }
+      .tl-row { grid-template-columns: 1fr; gap: 6px; }
+      .about-strip { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="nav-logo" href="#">Terry<span>Wang</span></a>
+    <a class="nav-logo" href="#">Terry Wang</a>
     <ul class="nav-links">
       <li><a href="#recruiting">Recruiting</a></li>
       <li><a href="#prep">Interview Prep</a></li>
@@ -285,259 +322,372 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-badge">2027 Internship Recruiting Hub</div>
-    <h1>Break into <span>Tech</span> as a Sophomore</h1>
-    <p>Everything I used and recommend for landing a PM or EPM internship — from a non-target sophomore who got into Apple.</p>
-
-    <div class="about-card">
-      <div class="about-avatar">TW</div>
-      <div class="about-text">
-        <h3>Terry Wang</h3>
-        <p>Sophomore EPM (Engineering Program Manager) intern at Apple this summer. Non-target school. This is the recruiting playbook I wish I had — built from what actually worked.</p>
-        <div class="about-chips">
-          <span class="chip chip-apple">Apple EPM Intern</span>
-          <span class="chip chip-school">Non-Target School</span>
-          <span class="chip chip-role">Sophomore</span>
+    <div class="container">
+      <div class="hero-eyebrow">2027 Internship Guide</div>
+      <h1>PM &amp; EPM Recruiting,<br>from a non-target sophomore</h1>
+      <p class="hero-desc">Everything I used to land an Apple EPM internship as a sophomore — company posting dates, interview frameworks, and a realistic recruiting timeline.</p>
+      <div class="about-strip">
+        <div class="about-initials">TW</div>
+        <div class="about-info">
+          <span class="about-name">Terry Wang</span>
+          <span class="about-detail"><strong>EPM Intern @ Apple</strong> · Sophomore · Non-target school</span>
         </div>
       </div>
     </div>
   </div>
 
-  <hr />
-
   <!-- RECRUITING -->
-  <section id="recruiting">
-    <div class="section-header">
-      <h2>2027 Recruiting Resources</h2>
-      <span class="section-tag">Where to Apply</span>
-    </div>
-    <p class="section-sub">The places that actually matter for finding and tracking PM/EPM internships as a sophomore at a non-target school.</p>
+  <div class="section" id="recruiting">
+    <div class="container">
+      <div class="section-eyebrow">Recruiting</div>
+      <div class="section-title">When Companies Post</div>
+      <p class="section-desc">PM and APM cohorts are small — windows close fast. Most top programs open in Aug–Oct 2026 for summer 2027. Apply in the first week.</p>
 
-    <p class="sublabel">Job Boards</p>
-    <div class="grid grid-2" style="margin-bottom:4px;">
-      <a class="card" href="https://www.pitt.edu/pittwire/features-articles/how-find-internships-linkedin" target="_blank" rel="noopener">
-        <div class="card-label label-job">Job Board</div>
-        <h3>LinkedIn Jobs</h3>
-        <p>Set alerts for "Product Manager Intern 2027" and "Program Manager Intern 2027." Apply within 24 hours of posting — response rates drop fast.</p>
-      </a>
-      <a class="card" href="https://simplify.jobs" target="_blank" rel="noopener">
-        <div class="card-label label-job">Job Board</div>
-        <h3>Simplify</h3>
-        <p>Autofills applications and aggregates internship listings in one place. Huge time-saver when you're applying to 30+ roles. Free.</p>
-      </a>
-      <a class="card" href="https://github.com/SimplifyJobs/Summer2026-Internships" target="_blank" rel="noopener">
-        <div class="card-label label-job">Job Board</div>
-        <h3>GitHub Internship List</h3>
-        <p>Community-maintained list of tech internships updated daily. One of the fastest ways to see what's open before it hits LinkedIn.</p>
-      </a>
-      <a class="card" href="https://www.levels.fyi/internships/" target="_blank" rel="noopener">
-        <div class="card-label label-job">Compensation</div>
-        <h3>Levels.fyi — Internships</h3>
-        <p>Real compensation data for internships at top companies. Know your worth before you negotiate or compare offers.</p>
-      </a>
-    </div>
+      <div class="company-table">
+        <div class="table-header">
+          <span>Company / Program</span>
+          <span>Opens</span>
+          <span>Closes / Deadline</span>
+          <span>Notes</span>
+        </div>
 
-    <p class="sublabel" style="margin-top:28px;">Networking & Referrals</p>
-    <div class="grid grid-2">
-      <a class="card" href="https://www.linkedin.com" target="_blank" rel="noopener">
-        <div class="card-label label-network">Networking</div>
-        <h3>Cold LinkedIn Outreach</h3>
-        <p>Message PMs and EPMs at target companies. Keep it short: who you are, why you're reaching out, one specific question. A referral 10x's your chances at most big tech companies.</p>
-      </a>
-      <a class="card" href="https://www.reddit.com/r/ProductManagement/" target="_blank" rel="noopener">
-        <div class="card-label label-network">Community</div>
-        <h3>r/ProductManagement</h3>
-        <p>Real advice from working PMs and interns. Good for "how did you get your first PM role" threads and company-specific intel.</p>
-      </a>
-      <a class="card" href="https://www.reddit.com/r/cscareerquestions/" target="_blank" rel="noopener">
-        <div class="card-label label-network">Community</div>
-        <h3>r/CSCareerQuestions</h3>
-        <p>Best source for non-target school strategies, resume feedback, and internship timelines. The wiki alone is worth reading start to finish.</p>
-      </a>
-    </div>
-  </section>
+        <div class="table-row">
+          <div>
+            <div class="company-name">Google</div>
+            <div class="company-program">Associate Product Manager</div>
+          </div>
+          <div class="table-cell">Mid-October 2026</div>
+          <div class="table-cell">~2 weeks after opening</div>
+          <div class="table-cell"><span class="badge badge-fast">Closes in days</span></div>
+        </div>
 
-  <hr />
+        <div class="table-row">
+          <div>
+            <div class="company-name">Meta</div>
+            <div class="company-program">Rotational PM (RPM)</div>
+          </div>
+          <div class="table-cell">Late August 2026</div>
+          <div class="table-cell">Rolling, fills quickly</div>
+          <div class="table-cell"><span class="badge badge-early">Earliest opener</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Microsoft</div>
+            <div class="company-program">PM Intern</div>
+          </div>
+          <div class="table-cell">August–September 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Amazon</div>
+            <div class="company-program">PM Intern</div>
+          </div>
+          <div class="table-cell">August–September 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Apple</div>
+            <div class="company-program">EPM / PM Intern</div>
+          </div>
+          <div class="table-cell">September–October 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">LinkedIn</div>
+            <div class="company-program">PM Intern · First Play track</div>
+          </div>
+          <div class="table-cell">September–October 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-limited">Underclass-friendly</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Uber</div>
+            <div class="company-program">APM Intern</div>
+          </div>
+          <div class="table-cell">October–November 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Salesforce</div>
+            <div class="company-program">PM Intern</div>
+          </div>
+          <div class="table-cell">September–November 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Stripe</div>
+            <div class="company-program">PM Intern</div>
+          </div>
+          <div class="table-cell">October–December 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Palantir</div>
+            <div class="company-program">Product Deployment Intern</div>
+          </div>
+          <div class="table-cell">October–December 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Adobe</div>
+            <div class="company-program">PM Intern</div>
+          </div>
+          <div class="table-cell">September–November 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+
+        <div class="table-row">
+          <div>
+            <div class="company-name">Snowflake</div>
+            <div class="company-program">PM Intern</div>
+          </div>
+          <div class="table-cell">October–December 2026</div>
+          <div class="table-cell">Rolling admissions</div>
+          <div class="table-cell"><span class="badge badge-rolling">Rolling</span></div>
+        </div>
+      </div>
+
+      <div class="sublabel" style="margin-top:36px;">What to Track</div>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-label">Tracker</div>
+          <h3>Simplify Jobs</h3>
+          <p>Aggregates PM and APM internship listings in one place and autofills applications. Best way to apply to 30+ roles without burning hours on forms.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">List</div>
+          <h3>GitHub Internship List</h3>
+          <p>Community-maintained list updated daily. Often the fastest way to see new postings before they surface on LinkedIn or company sites.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Compensation</div>
+          <h3>Levels.fyi — Internships</h3>
+          <p>Real intern pay data by company and role. Know the numbers before you compare or negotiate offers.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Networking</div>
+          <h3>Cold LinkedIn Outreach</h3>
+          <p>Message PMs and EPMs at target companies. Keep it to 3 sentences. A referral at a big tech company meaningfully changes your odds — especially from a non-target.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- INTERVIEW PREP -->
-  <section id="prep">
-    <div class="section-header">
-      <h2>Interview Prep</h2>
-      <span class="section-tag">Resources</span>
-    </div>
-    <p class="section-sub">Only what's genuinely useful — no filler.</p>
+  <div class="section" id="prep">
+    <div class="container">
+      <div class="section-eyebrow">Interview Prep</div>
+      <div class="section-title">What to Study</div>
+      <p class="section-desc">No filler. The resources below are the ones that actually move the needle for PM and APM interviews.</p>
 
-    <p class="sublabel">Books</p>
-    <div class="grid grid-2">
-      <a class="card" href="https://www.amazon.com/dp/0984782818" target="_blank" rel="noopener">
-        <div class="card-label label-book">Book</div>
-        <h3>Cracking the PM Interview</h3>
-        <p>Gayle McDowell & Jackie Bavaro. Covers every PM question type with clear frameworks. Start here before anything else.</p>
-      </a>
-      <a class="card" href="https://www.amazon.com/dp/0998120448" target="_blank" rel="noopener">
-        <div class="card-label label-book">Book</div>
-        <h3>Decode and Conquer</h3>
-        <p>Lewis C. Lin. Tight, practical frameworks for design, estimation, and strategy questions. Best for structuring answers quickly.</p>
-      </a>
-    </div>
+      <div class="sublabel">Books</div>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-label">Book</div>
+          <h3>Cracking the PM Interview</h3>
+          <p>Gayle McDowell & Jackie Bavaro. Covers every PM question type with clear structured approaches. Start here before anything else.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Book</div>
+          <h3>Decode and Conquer</h3>
+          <p>Lewis C. Lin. Tight, practical frameworks for design, estimation, and strategy questions. Best for structuring answers quickly under pressure.</p>
+        </div>
+      </div>
 
-    <p class="sublabel" style="margin-top:24px;">Practice Platforms</p>
-    <div class="grid grid-2">
-      <a class="card" href="https://www.tryexponent.com" target="_blank" rel="noopener">
-        <div class="card-label label-platform">Platform</div>
-        <h3>Exponent</h3>
-        <p>Best PM prep platform. Video lessons, a real question bank, and mock interviews with actual PMs. Worth subscribing for a month before interviews.</p>
-      </a>
-      <a class="card" href="https://igotanoffer.com/blogs/product-manager" target="_blank" rel="noopener">
-        <div class="card-label label-platform">Free Resource</div>
-        <h3>IGotAnOffer — PM Blog</h3>
-        <p>Free, detailed breakdowns of PM interviews at top companies with sample answers. One of the best free resources available.</p>
-      </a>
-    </div>
+      <div class="sublabel">Practice</div>
+      <div class="card-grid">
+        <div class="info-card">
+          <div class="info-card-label">Platform</div>
+          <h3>Exponent</h3>
+          <p>Best PM prep platform. Video lessons, real question bank, mock interviews with PMs. Subscribe for one month before your interview window.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Free Resource</div>
+          <h3>IGotAnOffer — PM Blog</h3>
+          <p>Free, detailed breakdowns of PM interviews at top companies with worked sample answers. One of the best free resources out there.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">YouTube</div>
+          <h3>Exponent on YouTube</h3>
+          <p>Free mock PM interviews with real feedback. Watch 5–8 before your first interview to hear what a strong answer sounds like.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-label">Newsletter</div>
+          <h3>Lenny's Newsletter</h3>
+          <p>Builds genuine product intuition over time. Gives you real things to reference when asked "what products excite you?"</p>
+        </div>
+      </div>
 
-    <p class="sublabel" style="margin-top:24px;">Video</p>
-    <div class="grid grid-2">
-      <a class="card" href="https://www.youtube.com/@ExponentTV" target="_blank" rel="noopener">
-        <div class="card-label label-video">YouTube</div>
-        <h3>Exponent — YouTube</h3>
-        <p>Free mock PM interviews with real feedback. Watch 5–8 before your first interview to hear what a strong answer actually sounds like.</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/@JeffHSiew" target="_blank" rel="noopener">
-        <div class="card-label label-video">YouTube</div>
-        <h3>Jeff H Siew</h3>
-        <p>Ex-Google PM. Concise walkthroughs of product design and metrics questions. Great for quickly leveling up your structure.</p>
-      </a>
-    </div>
-
-    <p class="sublabel" style="margin-top:24px;">Stay Informed</p>
-    <div class="grid grid-2">
-      <a class="card" href="https://www.lennysnewsletter.com" target="_blank" rel="noopener">
-        <div class="card-label label-newsletter">Newsletter</div>
-        <h3>Lenny's Newsletter</h3>
-        <p>The standard PM newsletter. Reading it builds genuine product intuition — and gives you real things to say when asked "what products excite you?"</p>
-      </a>
-    </div>
-
-    <p class="sublabel" style="margin-top:28px;">Key Frameworks</p>
-    <div class="framework-grid">
-      <div class="fw-card">
-        <div class="fw-name">CIRCLES</div>
-        <div class="fw-full">Comprehend → Identify users → Report needs → Cut through → List solutions → Evaluate → Summarize</div>
-        <div class="fw-use">Product design — designing or improving a product.</div>
-      </div>
-      <div class="fw-card">
-        <div class="fw-name">STAR</div>
-        <div class="fw-full">Situation → Task → Action → Result</div>
-        <div class="fw-use">Behavioral questions — tell me about a time you…</div>
-      </div>
-      <div class="fw-card">
-        <div class="fw-name">RICE</div>
-        <div class="fw-full">Reach × Impact × Confidence ÷ Effort</div>
-        <div class="fw-use">Prioritization — comparing features or roadmap bets.</div>
-      </div>
-      <div class="fw-card">
-        <div class="fw-name">North Star + Guardrails</div>
-        <div class="fw-full">One primary metric that captures value, protected by counter-metrics.</div>
-        <div class="fw-use">Metrics questions — "how would you measure success for X?"</div>
-      </div>
-      <div class="fw-card">
-        <div class="fw-name">AARRR</div>
-        <div class="fw-full">Acquisition → Activation → Retention → Referral → Revenue</div>
-        <div class="fw-use">Analytics — diagnosing a metric drop or defining a funnel.</div>
-      </div>
-      <div class="fw-card">
-        <div class="fw-name">Jobs-to-be-Done</div>
-        <div class="fw-full">"When I ___, I want to ___, so I can ___."</div>
-        <div class="fw-use">User needs — reframe features around motivations, not demographics.</div>
+      <div class="sublabel">Frameworks to Know Cold</div>
+      <div class="fw-list">
+        <div class="fw-row" style="background:var(--bg); border-bottom:1px solid var(--border);">
+          <span style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--subtle);">Framework</span>
+          <span style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--subtle);">What it stands for</span>
+          <span style="font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--subtle);">Use when</span>
+        </div>
+        <div class="fw-row">
+          <div class="fw-name">CIRCLES</div>
+          <div class="fw-expand">Comprehend → Identify users → Report needs → Cut → List solutions → Evaluate → Summarize</div>
+          <div class="fw-when">Designing or improving a product</div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-name">STAR</div>
+          <div class="fw-expand">Situation → Task → Action → Result</div>
+          <div class="fw-when">Any behavioral question</div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-name">RICE</div>
+          <div class="fw-expand">Reach × Impact × Confidence ÷ Effort</div>
+          <div class="fw-when">Prioritizing features or roadmap bets</div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-name">AARRR</div>
+          <div class="fw-expand">Acquisition → Activation → Retention → Referral → Revenue</div>
+          <div class="fw-when">Diagnosing a metric drop or mapping a funnel</div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-name">North Star</div>
+          <div class="fw-expand">One primary metric capturing user value + counter-metrics as guardrails</div>
+          <div class="fw-when">"How would you measure success for X?"</div>
+        </div>
+        <div class="fw-row">
+          <div class="fw-name">Jobs-to-be-Done</div>
+          <div class="fw-expand">"When I ___, I want to ___, so I can ___."</div>
+          <div class="fw-when">Defining user needs without falling back on demographics</div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <hr />
+  </div>
 
   <!-- TIMELINE -->
-  <section id="timeline">
-    <div class="section-header">
-      <h2>Recruiting Timeline</h2>
-      <span class="section-tag">2026–2027</span>
-    </div>
-    <p class="section-sub">When things actually happen for 2027 summer internships. Big tech moves fast — earlier than you'd expect.</p>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">Aug – Sep 2026</div>
-        <div class="tl-title">Applications Open</div>
-        <ul class="tl-tasks">
-          <li>Big tech (Google, Meta, Microsoft, Amazon) typically opens in Aug–Sep — apply immediately</li>
-          <li>Finalize your resume and get feedback from peers or Reddit before this window</li>
-          <li>Set up LinkedIn job alerts and bookmark the GitHub internship list</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">Sep – Oct 2026</div>
-        <div class="tl-title">Network Aggressively</div>
-        <ul class="tl-tasks">
-          <li>Send 3–5 LinkedIn cold messages per week to PMs/EPMs at target companies</li>
-          <li>Ask for referrals — a referral at Apple, Google, or Meta meaningfully changes odds</li>
-          <li>Attend any virtual PM/tech events your school or organizations host</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">Oct – Nov 2026</div>
-        <div class="tl-title">Interview Prep Intensifies</div>
-        <ul class="tl-tasks">
-          <li>Read Cracking the PM Interview start to finish</li>
-          <li>Practice 10+ product design questions using CIRCLES out loud</li>
-          <li>Write and rehearse 6 STAR behavioral stories cold</li>
-          <li>Do 3–4 mock interviews on Exponent or with a peer</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">Nov – Jan 2027</div>
-        <div class="tl-title">Interviews & Offers</div>
-        <ul class="tl-tasks">
-          <li>Most big tech PM/EPM interviews happen in this window</li>
-          <li>Keep applying — rolling admissions means late apps still get reviewed</li>
-          <li>Check Levels.fyi before comparing or negotiating offers</li>
-        </ul>
-      </div>
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-period">Jan – Mar 2027</div>
-        <div class="tl-title">Mid-Season & Smaller Companies</div>
-        <ul class="tl-tasks">
-          <li>Mid-size tech and startups hire on this later cycle — don't stop applying</li>
-          <li>Reach back out to companies that rejected you — circumstances change</li>
-          <li>If you have an offer, decide before exploding deadlines</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <div class="section" id="timeline">
+    <div class="container">
+      <div class="section-eyebrow">Timeline</div>
+      <div class="section-title">Recruiting Calendar</div>
+      <p class="section-desc">When to do what, for summer 2027 PM and EPM internships.</p>
 
-  <hr />
+      <div class="tl-list">
+        <div class="tl-row">
+          <div>
+            <div class="tl-period">Aug – Sep 2026</div>
+            <div class="tl-period-sub">Applications open</div>
+          </div>
+          <div class="tl-content">
+            <h4>Apply immediately</h4>
+            <ul class="tl-tasks">
+              <li>Meta RPM, Microsoft, and Amazon open as early as August — apply day one</li>
+              <li>Finalize your resume and get feedback before this window</li>
+              <li>Set up LinkedIn job alerts and bookmark the GitHub internship list</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div>
+            <div class="tl-period">Sep – Oct 2026</div>
+            <div class="tl-period-sub">Prime networking window</div>
+          </div>
+          <div class="tl-content">
+            <h4>Network for referrals</h4>
+            <ul class="tl-tasks">
+              <li>Send 3–5 LinkedIn cold messages per week to PMs/EPMs at target companies</li>
+              <li>Ask specifically for referrals — at non-targets, this changes your odds</li>
+              <li>Google APM opens mid-October and closes in ~2 weeks — be ready</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div>
+            <div class="tl-period">Oct – Nov 2026</div>
+            <div class="tl-period-sub">Interview prep</div>
+          </div>
+          <div class="tl-content">
+            <h4>Prepare seriously</h4>
+            <ul class="tl-tasks">
+              <li>Read Cracking the PM Interview start to finish</li>
+              <li>Practice 10+ product design questions out loud using CIRCLES</li>
+              <li>Write and rehearse 6 STAR behavioral stories until they're cold</li>
+              <li>Do 3–4 mock interviews on Exponent or with a peer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div>
+            <div class="tl-period">Nov – Jan 2027</div>
+            <div class="tl-period-sub">Interviews & offers</div>
+          </div>
+          <div class="tl-content">
+            <h4>Interview season peaks</h4>
+            <ul class="tl-tasks">
+              <li>Most big tech PM/EPM interviews happen in this window</li>
+              <li>Keep applying — rolling admissions means late apps still get reviewed</li>
+              <li>Check Levels.fyi before comparing or negotiating offers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div>
+            <div class="tl-period">Jan – Mar 2027</div>
+            <div class="tl-period-sub">Late season</div>
+          </div>
+          <div class="tl-content">
+            <h4>Mid-size and startup hiring</h4>
+            <ul class="tl-tasks">
+              <li>Stripe, Snowflake, Palantir, and smaller companies hire on this later cycle</li>
+              <li>Some big tech roles reopen if headcount remains — re-apply where you can</li>
+              <li>If you have an offer, understand exploding deadlines before deciding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- TIPS -->
-  <section id="tips">
-    <div class="section-header">
-      <h2>What Actually Worked</h2>
-      <span class="section-tag">From Experience</span>
+  <div class="section" id="tips">
+    <div class="container">
+      <div class="section-eyebrow">Advice</div>
+      <div class="section-title">What Actually Worked</div>
+      <p class="section-desc">From landing an Apple EPM role as a sophomore from a non-target school.</p>
+      <div class="tips-list">
+        <div class="tip"><strong>Referrals matter more than your school name.</strong> At a non-target, a referral from someone internal is often the difference between your resume getting seen or not. Treat networking as part of your application process, not optional.</div>
+        <div class="tip"><strong>Apply within 24 hours.</strong> PM and EPM cohorts are small. Applications that come in within the first day of a posting get meaningfully more attention than those submitted a week later.</div>
+        <div class="tip"><strong>Structure before you speak.</strong> In interviews, take 20–30 seconds to think before answering. Interviewers reward clear thinking over speed — silence is fine.</div>
+        <div class="tip"><strong>Anchor every decision to a user need.</strong> "I'd build X because users struggle with Y" is a PM answer. "I'd build X because it's cool" is not.</div>
+        <div class="tip"><strong>Practice out loud, not in your head.</strong> Answers feel very different when you say them. Record yourself once a week — you'll catch filler words and weak logic fast.</div>
+        <div class="tip"><strong>Don't overlook EPM and APM tracks.</strong> Engineering Program Manager and Associate PM roles are real paths into product. They're often more accessible as a sophomore and lead to the same career trajectory.</div>
+      </div>
     </div>
-    <p class="section-sub">Lessons from landing an Apple EPM role as a sophomore from a non-target school.</p>
-    <div class="tips-list">
-      <div class="tip"><strong>Referrals matter more than your school name.</strong> At a non-target, a referral from someone internal is often the difference between your resume getting seen or not. Prioritize networking over perfecting your application.</div>
-      <div class="tip"><strong>Apply on day one.</strong> PM and EPM internship roles at big tech fill fast. Applications that come in within the first 48 hours get meaningfully more attention.</div>
-      <div class="tip"><strong>Structure before you speak.</strong> In PM interviews, take 20–30 seconds to think before answering. Interviewers reward clear thinking over speed — silence is fine.</div>
-      <div class="tip"><strong>Anchor decisions to the user, always.</strong> "I'd build X because users struggle with Y" is a good PM answer. "I'd build X because it's cool" is not.</div>
-      <div class="tip"><strong>Practice out loud, not in your head.</strong> Answers sound very different when you say them. Record yourself at least once a week — you'll catch filler words and gaps in logic fast.</div>
-      <div class="tip"><strong>Don't undersell the EPM / APM track.</strong> Engineering Program Manager and Associate PM roles are real paths into product. They're often more accessible for sophomores and lead to the same career trajectory.</div>
-    </div>
-  </section>
+  </div>
 
   <footer>
-    Made by <a href="https://www.linkedin.com/in/terrywang060712" target="_blank" rel="noopener">Terry Wang</a> · Sophomore EPM Intern @ Apple · Non-Target School · 2027 Recruiting Hub
+    <div class="container">
+      Made by Terry Wang · EPM Intern @ Apple · Sophomore · Non-target school
+    </div>
   </footer>
 
 </body>
