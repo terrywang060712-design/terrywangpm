@@ -287,6 +287,56 @@
     }
     .tip strong { color: var(--text); }
 
+    /* ABOUT ME */
+    .about-me-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-me-left { display: flex; flex-direction: column; gap: 16px; }
+    .about-me-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--text);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .about-me-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+    .about-me-role { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .about-me-tags { display: flex; flex-direction: column; gap: 5px; }
+    .about-me-tag {
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .about-me-tag::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--subtle);
+      flex-shrink: 0;
+    }
+    .about-me-right { padding-top: 4px; }
+    .about-me-body {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .about-me-body p strong { color: var(--text); font-weight: 600; }
+
     /* FOOTER */
     footer {
       padding: 40px 0;
@@ -305,6 +355,7 @@
       .fw-when { display: none; }
       .tl-row { grid-template-columns: 1fr; gap: 6px; }
       .about-strip { flex-direction: column; align-items: flex-start; }
+      .about-me-grid { grid-template-columns: 1fr; gap: 28px; }
     }
   </style>
 </head>
@@ -317,6 +368,7 @@
       <li><a href="#prep">Interview Prep</a></li>
       <li><a href="#timeline">Timeline</a></li>
       <li><a href="#tips">Tips</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
   </nav>
 
@@ -330,7 +382,7 @@
         <div class="about-initials">TW</div>
         <div class="about-info">
           <span class="about-name">Terry Wang</span>
-          <span class="about-detail"><strong>EPM Intern @ Apple</strong> · Sophomore · Non-target school</span>
+          <span class="about-detail"><strong>EPM @ Apple</strong> · Sophomore · Non-target school</span>
         </div>
       </div>
     </div>
@@ -877,7 +929,7 @@
     <div class="container">
       <div class="section-eyebrow">Advice</div>
       <div class="section-title">What Actually Worked</div>
-      <p class="section-desc">From landing an Apple EPM role as a sophomore from a non-target school.</p>
+      <p class="section-desc">From getting an EPM role at Apple as a sophomore from a non-target school.</p>
       <div class="tips-list">
         <div class="tip"><strong>Referrals matter more than your school name.</strong> At a non-target, a referral from someone internal is often the difference between your resume getting seen or not. Treat networking as part of your application process, not optional.</div>
         <div class="tip"><strong>Apply within 24 hours.</strong> PM and EPM cohorts are small. Applications that come in within the first day of a posting get meaningfully more attention than those submitted a week later.</div>
@@ -889,9 +941,41 @@
     </div>
   </div>
 
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <div class="container">
+      <div class="section-eyebrow">About</div>
+      <div class="section-title">Who made this</div>
+
+      <div class="about-me-grid">
+        <div class="about-me-left">
+          <div class="about-me-avatar">TW</div>
+          <div>
+            <div class="about-me-name">Terry Wang</div>
+            <div class="about-me-role">EPM @ Apple</div>
+          </div>
+          <div class="about-me-tags">
+            <div class="about-me-tag">Sophomore</div>
+            <div class="about-me-tag">Non-target school</div>
+            <div class="about-me-tag">Product & Program Management</div>
+          </div>
+        </div>
+
+        <div class="about-me-right">
+          <div class="about-me-body">
+            <p>I know what it feels like to open LinkedIn and have no idea where to start. No one in my network had done this before. My school doesn't send people to Apple. I had to piece everything together from Reddit threads, cold outreach, and a lot of trial and error.</p>
+            <p>I built this site because <strong>I wish something like it existed when I started</strong>. Not a generic list of tips — a clear, honest breakdown of when to apply, who to reach out to, and what actually matters in interviews. The kind of resource that levels the playing field a little for students who don't have a built-in roadmap.</p>
+            <p>If you're a sophomore or junior at a non-target school trying to break into PM or EPM roles and feeling overwhelmed by the process — <strong>this is for you</strong>. The recruiting system isn't impossible to navigate. It just takes knowing where to look and moving fast when it counts.</p>
+            <p>Good luck. Feel free to reach out on LinkedIn if you're stuck — I'm happy to help.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="container">
-      Made by Terry Wang · EPM Intern @ Apple · Sophomore · Non-target school
+      Made by Terry Wang · EPM @ Apple · 2027 PM Internship Guide
     </div>
   </footer>
 
